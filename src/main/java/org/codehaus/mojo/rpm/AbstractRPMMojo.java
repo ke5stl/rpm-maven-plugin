@@ -65,7 +65,9 @@ abstract class AbstractRPMMojo
     extends AbstractMojo
     implements RPMVersionableMojo
 {
-
+    @Parameter( alias = "rpmBuildExe", property = "rpm.rpmbuild.exe", defaultValue = "rpmbuild")
+    private String rpmRpmbuildExe;
+    
     /**
      * The name portion of the output file name.
      */
@@ -1560,6 +1562,22 @@ abstract class AbstractRPMMojo
         return this.defaultFilterWrappers;
     }
 
+    /**
+     * @return the rpmRpmbuildExe
+     */
+    final public String getRpmRpmbuildExe()
+    {
+        return rpmRpmbuildExe;
+    }
+
+    /**
+     * @param rpmRpmbuildExe the rpmRpmbuildExe to set
+     */
+    final public void setRpmRpmbuildExe( String rpmRpmbuildExe )
+    {
+        this.rpmRpmbuildExe = rpmRpmbuildExe;
+    }
+    
     /**
      * Load and decrypt gpg passphrase from maven settings if not given from plugin configuration
      *
